@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -50,6 +52,48 @@ android {
 }
 
 dependencies {
+    // Jetpack Compose
+    implementation (libs.ui)
+    implementation (libs.ui.tooling.preview)
+    debugImplementation (libs.ui.tooling)
+    implementation (libs.material3)
+
+    // Paging 3
+    implementation (libs.androidx.paging.compose)
+    implementation (libs.androidx.paging.runtime)
+
+    // Glide
+    implementation (libs.glide)
+    kapt (libs.compiler)
+    implementation (libs.compose)
+
+    // Kodein
+    implementation (libs.di.kodein.di)
+    implementation (libs.kodein.di.framework.android.x)
+
+    // Room
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
+
+    // Kluent
+    testImplementation (libs.kluent)
+
+    // Kaspresso
+    androidTestImplementation (libs.kaspresso)
+
+    // ktlint
+    ktlint (libs.ktlint)
+
+    // LeakCanary
+    debugImplementation (libs.leakcanary.android)
+
+    // Timber
+    implementation (libs.timber)
+
+    // Coroutines
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
