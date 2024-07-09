@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ktlint)
+    kotlin("plugin.serialization") version "1.6.21"
 }
 
 android {
@@ -47,11 +48,27 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/*"
         }
     }
 }
 
 dependencies {
+    //Ktor
+    implementation (libs.io.ktor.ktor.client.core)
+    implementation (libs.io.ktor.ktor.client.android)
+    implementation (libs.ktor.client.serialization)
+    implementation (libs.ktor.client.logging)
+    //implementation (libs.logback.classic)
+
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation (libs.kotlinx.serialization.json)
+
+    // Android
+    implementation (libs.androidx.core.ktx)
+    implementation (libs.androidx.lifecycle.runtime.ktx)
+    implementation (libs.androidx.activity.compose)
     // Jetpack Compose
     implementation (libs.ui)
     implementation (libs.ui.tooling.preview)

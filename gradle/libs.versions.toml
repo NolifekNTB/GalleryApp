@@ -12,11 +12,15 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 kotlinxCoroutinesAndroid = "1.8.0"
 kotlinxCoroutinesCore = "1.8.0"
+kotlinxSerializationJson = "1.6.3"
 ktlint = "0.43.0"
+ktorKtorClient= "2.3.12"
+ktorSerializationKotlinxJson = "2.0.0"
 leakcanaryAndroid = "2.9.1"
 lifecycleRuntimeKtx = "2.8.2"
 activityCompose = "1.9.0"
 composeBom = "2023.08.00"
+logbackClassic = "1.5.6"
 material3 = "1.2.1"
 pagingCompose = "3.3.0"
 roomRuntime = "2.6.1"
@@ -36,6 +40,8 @@ compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide
 compose = { module = "com.github.bumptech.glide:compose", version.ref = "compose" }
 di-kodein-di = { module = "org.kodein.di:kodein-di", version.ref = "kodeinDiVersion" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+io-ktor-ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorKtorClient" }
+io-ktor-ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorKtorClient" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -54,8 +60,14 @@ kluent = { module = "org.amshove.kluent:kluent", version.ref = "kluent" }
 kodein-di-framework-android-x = { module = "org.kodein.di:kodein-di-framework-android-x", version.ref = "kodeinDiVersion" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorKtorClient" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorKtorClient" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorKtorClient" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanaryAndroid" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackClassic" }
 material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
