@@ -1,5 +1,6 @@
-package com.example.galleryapp.remote
+package com.example.galleryapp.data.remote
 
+import com.example.galleryapp.data.remote.dto.PostResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.logging.LogLevel
@@ -11,7 +12,7 @@ import kotlinx.serialization.json.Json
 
 interface PostsService {
 
-    suspend fun getPosts(): List<PostResponse>
+    suspend fun getPosts(): PostResponse
 
     companion object {
         fun create(): PostsService {

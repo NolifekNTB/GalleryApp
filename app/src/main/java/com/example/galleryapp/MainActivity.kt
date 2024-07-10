@@ -16,8 +16,8 @@ import androidx.compose.runtime.produceState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.galleryapp.remote.PostsService
-import com.example.galleryapp.remote.PostResponse
+import com.example.galleryapp.data.remote.PostsService
+import com.example.galleryapp.data.remote.dto.PostResponse
 import com.example.galleryapp.ui.theme.GalleryAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,10 +26,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
         setContent {
-            val posts = produceState<List<PostResponse>>(
-                initialValue = emptyList(),
+            val posts = produceState<PostResponse>(
+                initialValue = PostResponse("", 0, listOf()),
                 producer = {
                     value = service.getPosts()
                 }
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 
             GalleryAppTheme {
                 LazyColumn {
-                    items(posts.value) {
+                    items(posts.value.articles) {
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Text(text = it.title, fontSize = 20.sp)
                             Spacer(modifier = Modifier.height(4.dp))
-                            Text(text = it.body, fontSize = 14.sp)
+                            Text(text = it.url, fontSize = 14.sp)
                         }
                     }
                 }
