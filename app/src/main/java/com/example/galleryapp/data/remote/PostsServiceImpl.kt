@@ -10,9 +10,8 @@ import io.ktor.client.request.url
 
 class PostsServiceImpl(
     private val client: HttpClient
-) : PostsService {
-
-    override suspend fun getPosts(): PostResponse {
+) {
+    suspend fun getPosts(): PostResponse {
         return client.get {
             url(HttpRoutes.POSTS)
             parameter("apiKey", "750383b1af894d659264059445fba95b")

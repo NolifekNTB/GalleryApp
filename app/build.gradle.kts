@@ -84,9 +84,8 @@ dependencies {
     kapt (libs.compiler)
     implementation (libs.compose)
 
-    // Kodein
-    implementation (libs.di.kodein.di)
-    implementation (libs.kodein.di.framework.android.x)
+    //Koin
+    implementation (libs.koin.android)
 
     // Room
     implementation (libs.androidx.room.runtime)
