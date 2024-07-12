@@ -1,6 +1,8 @@
 package com.example.galleryapp.di
 
+import com.example.galleryapp.data.PagingRepository
 import com.example.galleryapp.data.remote.PostsServiceImpl
+import com.example.galleryapp.presentation.PagingViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -8,6 +10,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val networkModule = module {
@@ -28,4 +31,12 @@ val networkModule = module {
             }
         }
     }
+}
+
+val repositoryHttp = module {
+    single { PagingRepository(get()) }
+}
+
+val viewModelRepository = module {
+    viewModel { PagingViewModel(get()) }
 }

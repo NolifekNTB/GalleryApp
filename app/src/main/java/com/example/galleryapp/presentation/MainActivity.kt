@@ -1,4 +1,4 @@
-package com.example.galleryapp
+package com.example.galleryapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,7 +25,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
-            val posts = produceState<PostResponse>(
+            NewsScreen()
+            /*val posts = produceState<PostResponse>(
                 initialValue = PostResponse("", 0, listOf()),
                 producer = {
                     value = postsService.getPosts()
@@ -41,6 +42,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+             */
         }
     }
 }

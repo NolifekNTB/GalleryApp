@@ -17,6 +17,8 @@ class MyApp: Application() {
             androidLogger()
             androidContext(applicationContext)
             modules(networkModule)
+            modules(repositoryHttp)
+            modules(viewModelRepository)
         }
     }
 }
