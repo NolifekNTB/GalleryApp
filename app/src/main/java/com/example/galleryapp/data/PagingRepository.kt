@@ -3,16 +3,16 @@ package com.example.galleryapp.data
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.galleryapp.data.remote.PostsServiceImpl
-import com.example.galleryapp.data.remote.dto.Article
-import com.example.galleryapp.presentation.PagingSource
+import com.example.galleryapp.data.remote.ResponseService
+import com.example.galleryapp.data.remote.dto.ArticleDto
+import com.example.galleryapp.model.PagingSource
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.flow.Flow
 
 class PagingRepository(private val ktorClient: HttpClient) {
 
-    private val api = PostsServiceImpl(ktorClient)
-    fun getYourDataStream(): Flow<PagingData<Article>> {
+    private val api = ResponseService(ktorClient)
+    fun getYourDataStream(): Flow<PagingData<ArticleDto>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 3,

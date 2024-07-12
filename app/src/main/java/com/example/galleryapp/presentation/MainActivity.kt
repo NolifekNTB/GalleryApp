@@ -3,23 +3,11 @@ package com.example.galleryapp.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Text
-import androidx.compose.runtime.produceState
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.galleryapp.data.remote.PostsServiceImpl
-import com.example.galleryapp.data.remote.dto.PostResponse
+import com.example.galleryapp.data.remote.ResponseService
 import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
-    private val postsService: PostsServiceImpl by inject()
+    private val postsService: ResponseService by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

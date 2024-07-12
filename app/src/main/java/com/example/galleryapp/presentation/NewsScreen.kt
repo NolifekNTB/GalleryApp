@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.example.galleryapp.data.remote.dto.Article
+import com.example.galleryapp.data.remote.dto.ArticleDto
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -66,7 +66,7 @@ fun NewsScreen() {
 }
 
 @Composable
-fun YourItemComposable(index: Int, item: Article) {
+fun YourItemComposable(index: Int, item: ArticleDto) {
     // Implement the UI for your item
     Text(text = "$index + ${item.title}", fontSize = 20.sp)
     Spacer(modifier = Modifier.height(8.dp))

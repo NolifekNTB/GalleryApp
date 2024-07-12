@@ -1,20 +1,20 @@
-package com.example.galleryapp.presentation
+package com.example.galleryapp.model
 
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.galleryapp.data.remote.PostsServiceImpl
-import com.example.galleryapp.data.remote.dto.Article
+import com.example.galleryapp.data.remote.ResponseService
+import com.example.galleryapp.data.remote.dto.ArticleDto
 
 class PagingSource(
-    private val api: PostsServiceImpl,
-) : PagingSource<Int, Article>() {
+    private val api: ResponseService,
+) : PagingSource<Int, ArticleDto>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleDto> {
         return try {
             val nextPageNumber = params.key ?: 1
             Log.d("PagingSource", "Loading page $nextPageNumber with size ${params.loadSize}")
-            val response = api.getPosts(nextPageNumber, params.loadSize).articles
+            val response = api.getResponse(nextPageNumber, params.loadSize).articles
 
             LoadResult.Page(
                 data = response,
@@ -27,7 +27,7 @@ class PagingSource(
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, ArticleDto>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)

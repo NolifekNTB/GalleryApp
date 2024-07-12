@@ -3,8 +3,8 @@ package com.example.galleryapp.data.remote.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PostResponse(
+data class ResponseDto(
     val status: String,
     val totalResults: Int,
-    val articles: List<Article>
+    val articles: List<ArticleDto>
 )
