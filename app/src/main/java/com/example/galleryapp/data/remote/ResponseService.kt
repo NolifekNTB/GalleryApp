@@ -21,5 +21,3 @@ class ResponseService(
         }.body()
     }
 }
-
-//https://newsapi.org/v2/everything?q=Kotlin&apiKey=750383b1af894d659264059445fba95b
